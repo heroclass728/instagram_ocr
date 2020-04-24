@@ -2,7 +2,7 @@ import json
 
 from src.image_processor.item_selector import select_item
 from utils.folder_file_manager import log_print
-from settings import RANGE_MARGIN, LINE_DIFF, TEMP_IMG_PATH
+from settings import RANGE_MARGIN, LINE_DIFF
 
 
 def get_top_location_info(frame_path, json_data):
@@ -40,6 +40,7 @@ def get_top_location_info(frame_path, json_data):
                 tmp_countries = []
                 tmp_country = {"name": "", "y": 0}
                 cnt = 0
+                tmp_right_side = tmp_location_right
                 while len(tmp_countries) < 5:
                     _json_3 = top_location_json[cnt]
                     _json_3_center_y = int(0.5 * (_json_3["boundingPoly"]["vertices"][0]["x"] +
@@ -153,6 +154,6 @@ def get_top_location_info(frame_path, json_data):
 
 
 if __name__ == '__main__':
-    with open('/media/mensa/Data/Task/InstagramOCR/temp/temp.json') as f:
+    with open('') as f:
         json_content_ = json.load(f)
-    get_top_location_info(frame_path=TEMP_IMG_PATH, json_data=json_content_)
+    get_top_location_info(frame_path="", json_data=json_content_)

@@ -7,8 +7,6 @@ CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 CREDENTIAL_PATH = os.path.join(CUR_DIR, 'utils', 'credential', 'vision_key.txt')
 INPUT_IMG_DIR = os.path.join(CUR_DIR, 'input')
 OUTPUT_DIR = make_directory_if_not_exists(os.path.join(CUR_DIR, 'output'))
-INPUT_IMAGE_PATH = "/input/example1.jpg"
-TEMP_IMG_PATH = os.path.join(CUR_DIR, 'temp.jpg')
 
 EXCEL_FIELDS = ["Discovery", "Start Date", "End Date", "Reach", "Start Date", "End Date", "Impressions", "Gender",
                 "Men", "Women", "Age Range - All", "13 - 17", "18 - 24", "25 - 34", "35 - 44", "45 - 54", "55 - 64",
@@ -24,4 +22,8 @@ RANGE_MARGIN = 30
 HUE_THRESH = 0
 INV_THRESH = 150
 
+SERVER_HOST = "0.0.0.0"
+SERVER_PORT = 5000
+
 LOCAL = True
+WEB_SERVER = True

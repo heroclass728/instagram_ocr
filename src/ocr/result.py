@@ -103,7 +103,7 @@ class OCRExtractor:
 
 if __name__ == '__main__':
 
-    with open('/media/mensa/Data/Task/InstagramOCR/temp/temp_example1.json') as f:
+    with open('') as f:
         json_content_ = json.load(f)
-    OCRExtractor().extract_whole_info(frame_path="/media/mensa/Data/Task/InstagramOCR/input/example1.jpg",
+    OCRExtractor().extract_whole_info(frame_path="",
                                       json_data=json_content_)
