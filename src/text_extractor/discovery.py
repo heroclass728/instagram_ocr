@@ -90,10 +90,10 @@ def get_discovery_info(json_data, blog_width):
                 impression_data += range_data["description"] + ""
 
         discovery_dict["Reach"]["Start Date"] = reach_data[reach_data.rfind(".") + 1:reach_data.rfind("-")]
-        discovery_dict["Reach"]["End Date"] = reach_data[reach_data.rfind("-"):]
+        discovery_dict["Reach"]["End Date"] = reach_data[reach_data.rfind("-") + 1:]
         discovery_dict["Impression"]["Start Date"] = \
             impression_data[impression_data.rfind(".") + 1:impression_data.rfind("-")]
-        discovery_dict["Impression"]["End Date"] = reach_data[reach_data.rfind("-"):]
+        discovery_dict["Impression"]["End Date"] = reach_data[reach_data.rfind("-") + 1:]
 
         return discovery_dict
 

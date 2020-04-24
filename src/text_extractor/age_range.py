@@ -2,7 +2,7 @@ import json
 
 from utils.folder_file_manager import log_print
 from src.image_processor.item_selector import select_item
-from settings import LINE_DIFF, RANGE_MARGIN, TEMP_IMG_PATH
+from settings import LINE_DIFF, RANGE_MARGIN
 
 
 def get_age_range_values(frame_path, json_data):
@@ -119,7 +119,7 @@ def get_age_range_values(frame_path, json_data):
                                                   age_range_json[i + 2]["boundingPoly"]["vertices"][1]["x"]]
                 if _json["description"] == "65" and left <= range_center_x < right and top <= range_center_y <= bottom:
                     seventh_age_range_coordinate = [range_center_y,
-                                                    age_range_json[i + 2]["boundingPoly"]["vertices"][1]["x"]]
+                                                    age_range_json[i + 1]["boundingPoly"]["vertices"][1]["x"]]
                 if left <= range_center_x <= right and top <= range_center_y < bottom:
                     age_range_data.append(_json)
 
@@ -206,6 +206,6 @@ def get_age_range_values(frame_path, json_data):
 
 
 if __name__ == '__main__':
-    with open('/media/mensa/Data/Task/InstagramOCR/temp/temp.json') as f:
+    with open('/media/mensa/Data/Task/InstagramOCR/temp/temp_example1.json') as f:
         json_content_ = json.load(f)
-    get_age_range_values(frame_path=TEMP_IMG_PATH, json_data=json_content_)
+    get_age_range_values(frame_path="/media/mensa/Data/Task/InstagramOCR/input/example1.jpg", json_data=json_content_)

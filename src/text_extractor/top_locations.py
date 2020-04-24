@@ -42,15 +42,21 @@ def get_top_location_info(frame_path, json_data):
                 cnt = 0
                 while len(tmp_countries) < 5:
                     _json_3 = top_location_json[cnt]
-                    if tmp_location_left <= _json_3["boundingPoly"]["vertices"][1]["x"] + LINE_DIFF \
-                            <= tmp_location_right and _json_3["boundingPoly"]["vertices"][0]["y"] > tmp_location_bottom:
+                    _json_3_center_y = int(0.5 * (_json_3["boundingPoly"]["vertices"][0]["x"] +
+                                                   _json_3["boundingPoly"]["vertices"][1]["x"]))
+                    if tmp_location_left <= _json_3_center_y <= tmp_location_right and \
+                            _json_3["boundingPoly"]["vertices"][0]["y"] > tmp_location_bottom and \
+                            _json_3["description"] != "Less":
                         tmp_country_y = int(0.5 * (_json_3["boundingPoly"]["vertices"][0]["y"] +
                                                    _json_3["boundingPoly"]["vertices"][2]["y"]))
                         if abs(tmp_country_y - tmp_country["y"]) < LINE_DIFF:
-                            tmp_country["name"] += _json_3["description"]
+                            tmp_country["name"] += _json_3["description"] + " "
+                            tmp_right_side = _json_3["boundingPoly"]["vertices"][1]["x"]
                         else:
                             if tmp_country["name"] != "":
                                 tmp_countries.append(tmp_country.copy())
+                                if len(tmp_countries) == 1:
+                                    tmp_location_right = tmp_right_side
                             tmp_country["name"] = _json_3["description"]
                             tmp_country["y"] = tmp_country_y
                     cnt += 1

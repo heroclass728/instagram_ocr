@@ -21,7 +21,7 @@ def import_info_into_excel(info, file_name):
         excel_data.append("")
         for sub_key in info[info_key].keys():
             excel_data.append(info[info_key][sub_key])
-        if info_key == "Reach":
+        if info_key == "Impressions":
             excel_data.append("")
 
     excel_info = {"Profile Visits": EXCEL_FIELDS, "Values": excel_data}

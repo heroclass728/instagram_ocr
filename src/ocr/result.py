@@ -9,7 +9,7 @@ from src.text_extractor.discovery import get_discovery_info
 from src.output_exporter.to_excel_importer import import_info_into_excel
 from utils.folder_file_manager import save_file
 from utils.google_ocr import GoogleVisionAPI
-from settings import LOCAL, CUR_DIR, TEMP_IMG_PATH
+from settings import LOCAL, CUR_DIR
 
 
 class OCRExtractor:
@@ -68,7 +68,7 @@ class OCRExtractor:
             json_file_path = os.path.join(CUR_DIR, 'temp', "temp_{}.json".format(file_name))
             save_file(filename=json_file_path, content=json.dumps(image_ocr_json), method="w")
 
-        self.extract_whole_info(frame_path=sharpen_frame_path, json_data=image_ocr_json)
+        self.extract_whole_info(frame_path=frame_path, json_data=image_ocr_json)
         save_path = import_info_into_excel(info=self.info, file_name=file_name)
 
         return save_path
@@ -103,7 +103,7 @@ class OCRExtractor:
 
 if __name__ == '__main__':
 
-    with open('/media/mensa/Data/Task/InstagramOCR/temp/temp_example3.json') as f:
+    with open('/media/mensa/Data/Task/InstagramOCR/temp/temp_example1.json') as f:
         json_content_ = json.load(f)
-    OCRExtractor().extract_whole_info(frame_path="/media/mensa/Data/Task/InstagramOCR/temp_example3.jpg",
+    OCRExtractor().extract_whole_info(frame_path="/media/mensa/Data/Task/InstagramOCR/input/example1.jpg",
                                       json_data=json_content_)

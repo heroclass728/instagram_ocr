@@ -21,5 +21,7 @@ EXCEL_FIELDS = ["Discovery", "Start Date", "End Date", "Reach", "Start Date", "E
 
 LINE_DIFF = 10
 RANGE_MARGIN = 30
+HUE_THRESH = 0
+INV_THRESH = 150
 
 LOCAL = True
